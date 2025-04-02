@@ -1,5 +1,6 @@
 package is.nutritivna_zona.exceptions;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

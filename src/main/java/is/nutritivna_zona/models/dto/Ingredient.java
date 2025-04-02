@@ -10,11 +10,7 @@ import java.math.BigDecimal;
 public class Ingredient {
     private String name;
 
-    private BigDecimal quantityQuantity;
+    private BigDecimal ingredientQuantityValue;
 
-    private String quantityQuantityInWords;
-
-    private Integer quantityIngredientId;
-    private Integer quantityId;
-
+    private String ingredientQuantityValueInWords;
 }

@@ -1,7 +1,7 @@
 package is.nutritivna_zona.advices;
 
-import is.nutritivna_zona.util.LoggingUtil;
 import is.nutritivna_zona.exceptions.HttpException;
+import is.nutritivna_zona.util.LoggingUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.http.HttpStatus;
@@ -36,12 +36,12 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(HttpException.class)
-    public final ResponseEntity<Object> handleHttpException(HttpException e, HandlerMethod handlerMethod) {
+    public final ResponseEntity<Object> handleHttpException(HttpException exec, HandlerMethod handlerMethod) {
         Log log = getLog(handlerMethod);
-        log.error(e);
-        if (e.getStatus() == null)
+        log.error(exec);
+        if (exec.getStatus() == null)
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        return new ResponseEntity<>(e.getData(), e.getStatus());
+        return new ResponseEntity<>(exec.getData(), exec.getStatus());
     }
 
 

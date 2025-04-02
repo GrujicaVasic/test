@@ -7,12 +7,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
-@Data
 @Getter
 @Setter
 @Entity
@@ -35,6 +32,6 @@ public class IngredientEntity {
     private List<MealInMenuEntity> mealInMenus = new LinkedList<>();
 
     @OneToMany(mappedBy = "ingredient")
-    private List<QuantityEntity> quantities = new LinkedList<>();
+    private List<IngredientQuantityEntity> ingredientQuantities = new LinkedList<>();
 
 }

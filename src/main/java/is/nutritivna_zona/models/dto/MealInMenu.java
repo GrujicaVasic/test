@@ -10,5 +10,5 @@ public class MealInMenu {
     private String mealDescription;
     private String menuName;
     private String menuType;
-    private List<Ingredient> ingredients;
+    private List<IngredientQuantity> ingredientQuantities;
 }

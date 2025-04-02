@@ -1,5 +1,6 @@
 package is.nutritivna_zona.models.entities;
 
+import is.nutritivna_zona.base.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -14,7 +15,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "meal_in_menu")
-public class MealInMenuEntity {
+public class MealInMenuEntity implements BaseEntity<Integer> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -41,5 +42,8 @@ public class MealInMenuEntity {
             joinColumns = @JoinColumn(name = "meal_in_menu_id"),
             inverseJoinColumns = @JoinColumn(name = "meal_type_id"))
     private List<MealTypeEntity> mealTypeEntities = new LinkedList<>();
+
+    @OneToMany(mappedBy = "mealInMenu")
+    private List<IngredientQuantityEntity> ingredientQuantities = new LinkedList<>();
 
 }
